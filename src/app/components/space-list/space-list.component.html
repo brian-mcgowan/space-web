@@ -14,13 +14,13 @@
             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
               Space
             </th>
-<!--            <th scope="col" class="relative px-6 py-3">-->
-<!--              <span class="sr-only">Remove</span>-->
-<!--            </th>-->
+            <th scope="col" class="relative px-6 py-3">
+              <span class="sr-only">Remove</span>
+            </th>
           </tr>
           </thead>
           <tbody class="bg-white divide-y divide-gray-200">
-          <tr *ngFor="let space of spaceServices.spaces | async">
+          <tr *ngFor="let space of spaceServices.spaces | async" [class.bg-green-50]="space.coordinates" [class.bg-blue-50]="spaceServices.getActiveSpace().id === space.id">
             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
               {{ space.bl_id }}
             </td>
@@ -30,9 +30,9 @@
             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
               {{ space.s_id }}
             </td>
-<!--            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">-->
-<!--              <a class="cursor-pointer text-indigo-600 hover:text-indigo-900">Remove</a>-->
-<!--            </td>-->
+            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+              <a *ngIf="space.coordinates" (click)="spaceServices.removePointFromSpace(space)" class="cursor-pointer text-indigo-600 hover:text-indigo-900">Remove</a>
+            </td>
           </tr>
           </tbody>
         </table>
