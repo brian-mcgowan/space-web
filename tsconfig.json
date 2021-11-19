@@ -4,7 +4,15 @@
   "compilerOptions": {
     "baseUrl": "src",
     "paths": {
-      "@env": ["environments/environment"]
+      "@components": ["app/components"],
+      "@components/*": ["app/components/*"],
+      "@env": ["environments/environment"],
+      "@interfaces": ["app/interfaces"],
+      "@interfaces/*": ["app/interfaces/*"],
+      "@models": ["app/models"],
+      "@models/*": ["app/models/*"],
+      "@services": ["app/services"],
+      "@services/*": ["app/services/*"]
     },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,

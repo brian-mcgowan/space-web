@@ -5,7 +5,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN npm install
+RUN npm install -f
 RUN npm run build
 
 FROM nginx:1.21.4-alpine
