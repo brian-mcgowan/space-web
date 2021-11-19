@@ -24,4 +24,14 @@ export class Space implements ISpace {
   set coordinates(point: Point) {
     this._coordinates = point;
   }
+
+  toObject() {
+    return {
+      bl_id: this.bl_id || '',
+      fl_id: this.fl_id || '',
+      space: this.s_id || '',
+      pos_x: this.coordinates.x || '',
+      pos_y: this.coordinates.y || ''
+    };
+  }
 }
